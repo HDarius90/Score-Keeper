@@ -1,13 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ping Pong Score Keeper</title>
 </head>
+
 <body>
-    
+
+    <section id="main-content">
+        <img src="https://images.unsplash.com/photo-1534158914592-062992fbe900?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1199&q=80"
+            alt="pingpong">
+        <div id="headline">
+            <h1>Ping Pong Score Keeper</h1>
+        </div>
+        <div id="details">
+            <span id="player1">0</span> <span>to</span> <span id="player2">0</span><br>
+            <h6>Use the buttons below to keep score.</h6>
+            <label for="playing-to">Playing to</label>
+            <select name="playing-to" id="playingTo">
+                <option default value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+        </div>
+        <div id="buttons">
+            <button>+1 Player One</button><button>+1 Player Two</button><button>Reset</button>
+        </div>
+    </section>
+
+
+
+
     <script src="app.js"></script>
+
 </body>
+
 </html>
