@@ -40,6 +40,7 @@ resetButton.addEventListener('click', () => {
     player2Span.innerText = '0';
     player1value = 0;
     player2value = 0;
+    document.querySelector('#playingTo').selectedIndex = 0;
 })
 
 
