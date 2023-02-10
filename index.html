@@ -31,27 +31,30 @@
                         </header>
                         <div class="card-content">
                             <div class="content">
-                                <h2 class="title is-1"><span id="player1">0</span> <span>to</span> <span
-                                        id="player2">0</span><br></h2>
+                                <h2 class="title is-1"><span id="p1Display">0</span> <span>to</span> <span
+                                        id="p2Display">0</span><br></h2>
                                 <p class="subtitle">Use the buttons below to keep score.</p>
 
                                 <label class="label is-large is-inline" for="playing-to">Playing to</label>
                                 <div class="select is-rounded">
-                                    <select name="playing-to" id="playingTo">
-                                        <option default value="5">5</option>
+                                    <select name="playing-to" id="playto">
+                                        <option default value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
                                         <option value="6">6</option>
                                         <option value="7">7</option>
                                         <option value="8">8</option>
                                         <option value="9">9</option>
                                         <option value="10">10</option>
+                                        <option value="11">11</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
                         <footer class="card-footer">
-                            <button class="is-primary button card-footer-item" id="point-for-pl1">+1 Player One</button>
-                            <button class="is-info button card-footer-item" id="point-for-pl2">+1 Player Two</button>
-                            <button class="is-danger button card-footer-item" id="reset-button">Reset</button>
+                            <button class="is-primary button card-footer-item is-large" id="p1Button">+1 Player One</button>
+                            <button class="is-info button card-footer-item is-large" id="p2Button">+1 Player Two</button>
+                            <button class="is-danger button card-footer-item is-large" id="reset">Reset</button>
 
                         </footer>
                     </div>

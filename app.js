@@ -1,47 +1,55 @@
-const buttonForPl1 = document.querySelector('#point-for-pl1');
-const buttonForPl2 = document.querySelector('#point-for-pl2');
-const resetButton = document.querySelector('#reset-button');
-const player1Span = document.querySelector('#player1');
-const player2Span = document.querySelector('#player2');
-let player1value = parseInt(player1Span.innerText);
-let player2value = parseInt(player2Span.innerText);
+const p1 = {
+    score: 0,
+    button: document.querySelector('#p1Button'),
+    display: document.querySelector('#p1Display')
+}
+const p2 = {
+    score: 0,
+    button: document.querySelector('#p2Button'),
+    display: document.querySelector('#p2Display')
+}
 
-buttonForPl1.addEventListener('click', () => {
-    const playingTo = parseInt(document.querySelector('#playingTo').value);
-    player1value++;
-    player1Span.innerText = player1value;
-    if (playingTo === player1value) {
-        player1Span.style.color = 'green';
-        player2Span.style.color = 'red';
-        buttonForPl1.disabled = true;
-        buttonForPl2.disabled = true;
+const resetButton = document.querySelector('#reset');
+const winningScoreSelect = document.querySelector('#playto');
+let winningScore = 3;
+let isGameOver = false;
+
+function updateScores(player, opponent) {
+    if (!isGameOver) {
+        player.score += 1;
+        if (player.score === winningScore) {
+            isGameOver = true;
+            player.display.classList.add('has-text-success');
+            opponent.display.classList.add('has-text-danger');
+            player.button.disabled = true;
+            opponent.button.disabled = true;
+        }
+        player.display.textContent = player.score;
     }
+}
+
+
+p1.button.addEventListener('click', function () {
+    updateScores(p1, p2)
+})
+p2.button.addEventListener('click', function () {
+    updateScores(p2, p1)
 })
 
-buttonForPl2.addEventListener('click', () => {
-    const playingTo = parseInt(document.querySelector('#playingTo').value);
-    player2value++;
-    player2Span.innerText = player2value;
-    if (playingTo === player2value) {
-        player2Span.style.color = 'green';
-        player1Span.style.color = 'red';
-        buttonForPl1.disabled = true;
-        buttonForPl2.disabled = true;
+
+winningScoreSelect.addEventListener('change', function () {
+    winningScore = parseInt(this.value);
+    reset();
+})
+
+resetButton.addEventListener('click', reset)
+
+function reset() {
+    isGameOver = false;
+    for (let p of [p1, p2]) {
+        p.score = 0;
+        p.display.textContent = 0;
+        p.display.classList.remove('has-text-success', 'has-text-danger');
+        p.button.disabled = false;
     }
-
-})
-
-resetButton.addEventListener('click', () => {
-    buttonForPl1.disabled = false;
-    buttonForPl2.disabled = false;
-    player1Span.style.color = '';
-    player2Span.style.color = '';
-    player1Span.innerText = '0';
-    player2Span.innerText = '0';
-    player1value = 0;
-    player2value = 0;
-    document.querySelector('#playingTo').selectedIndex = 0;
-})
-
-
-
+}
